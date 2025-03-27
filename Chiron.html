@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>First Aid Kit Essentials for Seniors</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQysm7d0JnuK4_jPG6U3Fyd1cRzbb78Z_7-4g&s');
+      background-size: cover;
+      background-position: center;
+      color: Red;
+      height: 100%;
+    }
+
+    header {
+      background-color: rgba(0, 123, 255, 0.8);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 5px solid #0056b3;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #0056b3;
+      margin-bottom: 40px;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .product-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      font-size: 1.5rem;
+      color: #0056b3;
+      margin-bottom: 10px;
+    }
+
+    .product-card p {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .product-card button {
+      background-color: #28a745;
+      color: red;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .product-card button:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .cart-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: none;
+    }
+
+    .cart-container h3 {
+      text-align: center;
+      color: #0056b3;
+    }
+
+    .cart-items {
+      margin: 20px 0;
+    }
+
+    .cart-items div {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .cart-items div span {
+      color: #007bff;
+    }
+
+    .cart-total {
+      text-align: center;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .show-cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .show-cart:hover {
+      background-color: #0056b3;
+    }
+
+    .cart-button-container {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        font-size: 2rem;
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .product-card {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>First Aid Kit Essentials for Seniors</h1>
+</header>
+
+<div class="container">
+  <h2 class="section-title">Choose Your Essential Items</h2>
+
+  <div class="product-list">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxASERUQEhIWFRUVFhYWFRUVFRUVFRUVGBUYGBYVFRYYHSggGB0lHhUXITEhJyktLi4uFx8zODMsNygtLisBCgoKDg0OFxAQFS0dHh8rMiwrMC0rLSsrKy83Li43LS0rNy4tNy8zNy8rLystLTcrNy0rLS8tKy0wLS0rMyswN//AABEIAPwAyAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAgQFBgcDAQj/xABMEAABAwIDAwYICgcHBAMAAAABAAIDBBEFEiEGMUETIjJRYXEHFIGRobGywSMzNEJSU3JzktEkYoKi0uHwFRZjg5PC00N0w/EXpLP/xAAaAQEBAAMBAQAAAAAAAAAAAAAAAQIDBAUG/8QALhEBAAICAQIEAwcFAAAAAAAAAAECAxEEEjETIUFRBWHwFCIycZGhwRUjgbHx/9oADAMBAAIRAxEAPwDcUmRgcC1wBBBBBFwQd4I4hKQgxHaHDajAK4VtKC6klNiy5s2+pgefSx3ZbeOdruAYzDWQMqYHXY4bvnNcOkxw4OH9aLviuHRVML6eZgfHI0tc08R1gjUEGxBGoIBCxKnmqdnMQMb80lJNr95GLDO3gJmXGYbnDquLTsvdu6FwoayOaNs0Tg9j2hzXDcQdxXdVAhCEAo7aDGoKKB9TO6zG8PnOceixo4k/z3BOq+sjhjdNK8MjYC5zjuAH9blh80lVtHiGRuaOkh1v9XGdMx4GZ4Gg3NHXY3gc7O4XU4/WmtqwW0sTrZNbOtqIGdmoL3dpA1N27ZGwNAaAAAAAALAAbgBwTfDMPip4mQQsDI42hrWjgO/eSd5J1JJKdJAEIQqBCEIBCEIBCEIBCEIBCEIBCEIBCEIBQ+1ezsFfTOpphodWPFs0cgByvb2i5FuIJB0KmEIMN2L2inwWsfhtfpCXXza5GZt1RGT/ANJ1jmHA34hwO4tcCAQbg6gjcR1hVbwg7Gx4lBbRs8d3QSdR4sd+q6wv1GxsbWNJ8Fm18lM/+ya4FhY7k4i/fE/dyLjqMp0ym/EAXBaorYF49wAJJAAFyToABvJK9WO+FHa+Sqk/sqhvJmdycmTfK+9uRad2QWOY3G43Ia116iO2y2gnxutZhtDrCHXza5XZd9RJb/ptvzRxNuJAGubLbPQUFO2mhGg1e89KR56T39pt5AABoAo3wf7HR4bBl0dPJZ08v0ncGNP0W3NuvU8VaVAIQhUNsQqxEwvO/cB1lUmrqJXuLi91+828g4Ka2jnzSCMbmj0nX1WTB0Aa25/r+rIOGD4nyEuaV7i0gi2p14aeQq4wVzXtDgDY6i4H5rOatwJ8qtuCVOaMN4jRBO+MjqPoXnjI6j6E1umWJyPDDkAJ00Li0OsQS3MActxcXtpdBDYxt86mnjhlpbCWdsbJOVBBj1zPPN5rwcvMvYgnnaWVtir2OFxeyzPabZSpq6V8j3ZZmjNFBTtY2BpBBIc5xMkr7AgO5o10aleDblfF3Scq54zAFj3F5Yco1udbO6QHC9rmxQab4y3tR403t8yiYKkneu0koAJPBBC7TYrnOWJ7mlgNxq2xvby8FX4MUqWuB5Z+n6xI8x0KXVy85zjvc70X/wDS6mlDm3CKvWC4iJ4g/c4aOHUfyKFVNlawxThh3P5p7/mnz6eVeIi9oQhAIQhALPPCvsSKuJ1ZA0eMRMOYAfHxN1LPtjXKe0t4gt0NePbcEdaD57btFjLmcka1wbly/Nvltbphuc6cSb8b31Wg+CXYttLA2tmAM8zBk3EQwu5zWA8XEEZj2BvC5yGKukDRelLtNznjWw+lYjVbj4JKeaPCoGTPzOaZANS7KwSODWXP0bW6gAANApCyuKEIVQIQhBWZ4r1Dz1H3Jji8trgKYnNnyHt9wVVxWe5KCJqH6pzhmJiN2rbj0ryGiLxmO71rlNS24Iq30+MUrhfM0dhuEipxKmPz2+cqkuYFzcB1oL/Hi9Ju5Vl+rMqTXTx4fX+NxOa6kqDlnY0k8k4knOAOFzmG/e9otcKOkpgTcGx71yqTZpEgDmnQ2KDQqnEqQDMJmdejzr3WOqgsQ2gY/msvl68ztfJfcqJSVIZ8ASS3fE478vFh7R6u5S1JESLjcoJA1BcbqwYPLew7LdygYqUkEt3jh19yd4bUFrlRL1MGSVhH0h57oTyq52R36zfWvERdUIQgEIQgEIXhQfNU0k2YsscmYj9kH+S2nwVy5sNj7Jaof/bmt6CFjPLvBs7pA2O/eN99VqvgUmLsNcDvbU1DT5X5v9ykLK/IQhVAhCEFYxeWzn/a9wVTqHZn26zZWHaGS0jx2+4Krh15B3oq2NbGGtbbQAKrbSYkA/IwaD0+VTheqbjp+EQFLTcqx8rnOADgwNacoBtmzaakm9v2UvxZnb517hjwIHXFxywuAbEjkxuKbuqNfiz+NQd/FmdvnK5y0LHCxv51z8Z/wnfjC88Z/wAJ34gqGlbgLDHI5hcHsY6RtyC3MxpIvpu0XLZzFTdptoTZzDrYjRzfIVJyTfBSWaW/Ay3ub/MNrKtUvMqG/Rl9EjR72j90qDS4zG1wcwaaaHhdR1YA2Y23HULpEdAmtc7njuVFho5bho/Wb616mGFPGZo/Wb6wvURpqEIQCEIQCEIQfOe3rY6Kvmikdlu4ys5rudHIS5pbYa21b3tK0/wK4VLBhgfKCHVMr6gNO9rXhrW+cMDv2132/pYpKvDBJGx/6SRzmtdplBtqN1w0+QK7KQoQhCqBCEIKNtMfhX9/uCrcZ5471Ydpz8M/v9wVdh+MHeoqwE6KmbQSta+7nAd5AVwJ0Wf7Ynnt7yqJTCZWGBxPObywDspF/i27lydMz6En7qTs5l8VOa4aZ9SBcgcm3glumiHF/wCA/kopPjDPoSfurzl2fQk9C95eLrf+Ao5eLrf+AqoKmRvIy5Q4fAy3zW+gbWsqxVODoyWOBey0jACCczOcBbtsR5VaKh7OSlykn4GW9xa3NNlVcMPwzO8+ooL7htQ2SJkrdz2tcO4i/vXCuPPCitiJMsUlMd9PK9gvvyFxcwnyE+ZSVceeEEpg7uez7bfaQueDH4WP7bfaCERpuK17YYy86nc0dZ/JUyq2gq3nmvyjqa0ADy2v6U4x2sfPUmBnzLi53NA6RPXrw46cASCDCYweddx6yT6hogldn8VcWkSkutazrXN+IJUt/aTOp3mURHGALAWHUF0CCT/tFnU7zD80f2izqd5h+ajUIGO0dK+oqKKVgAbTzGSTMbEtLbcwC9z32Vh8fb1O9H5qPYlIH/jzep3mH5r3x1vUfN/NMF6EDbaTFnMjAjzNJNi625vGx4HcoumxSotcSOI7bO9YU85gcLEAjqO5NJcHhO5paetpI9G70IK3jMjnnlDx3261DQdMKw4pTOhOV/OjfoH8Qepw6+IPGx3W1r0YtIAeBsoqZedFQtrem3yq9SHRUHbGUNe0k21IQSGCvtRuP+N/42p7NAwHR9xwOXeOveo/Z14dRuPDlz/+bF1Y/JodWH93tCo78m36X7v80CJv0v3V4W9WoO49abTzfNb5T7ggXWOaI52g3tE/X9kqo0cobI0kgAX1OnBWapaG08xP1T7+ZZ5VyiR7Wg3A106zp/XeguGE4hGzEZbSNyTQsfmBBGdtm2uNNwPnVhqZg5wIII7F5gtTTsjDJJGNsAQLgWuAbZevW3BOMTxajcxrGytLw7mduY2y3tx3+RRdHmB/HR/bZ7QQvMB+Oi+8Z7QQqxWjDNXTP+c6U3Pdr7ypCJqjsMOsw/xneoKVYNEHoC9QhAIXtlXMb20oaYlj5c7xvZEM7geonotPYSpMxHdnjxXyTqlZmfksjUsLOT4U6a/xEtu9l/Nf3qawfbyhnIaJDG47myjJfszXLb9l1hGWk+rovweRSN2xytq9XJki6rY5CguoXILqxBH47GDBJcbhcd4IsVRHfHH7V/Or9jnxEn2feFQJPjj9oqKkpNyp20NEyR7S8XDSSB+at7zoq5ivSQh7hrQKUgCw5U6fsNSCF0oR+jH70+w1c1QkMsLAm3eksiAXRCBpjPyWftiePOLLNsPIEgJ3A3Pc3U+paNjvyWb7B9YWZcmbPePmgnz6D1+goH2ftv2rx02XnXtbW/UmdB0B5V0rBdju5EbLslUco+nk+m6J3nLT70Jt4Ppg9tIRwdC097XNafV6V4gumDm75/v3eoKZChMEPPqPv3+oKbCASmhJUftRiJpqOacaOYzmn9dxDGH8TgpM6jbKlZtaKx3lQfCLto/O6jpn5Wtu2aRp5zncY2ngBuJ3k3G4a17ZnYipqwJNIojue4XLvsM4jtNh2ptsXg4q6xkb9WC8kmupa0jTyuLQe8rcWzRt5uZotpa4FrcLcFyUr4s9Vuz6HkZ44FIwYI+9rcz9fUM5fsDh7Hci+utLoMpdE03PRGQm+txpfiofaLwfVNM0yRkTxjU5Rle0cSWXNx2gnuCXtG8HGCQdOWg1/ZjWwNlaeI86UpS/VGtaXkcnkcWMV+vr643MTEfL2ZHsFtm6Bzaad14TZrXHfEeGv0OzgthidwWK+EvA201UHxi0cwLwBua8HngDq1af2lovg/xIz0MT3G7mXjcd9yzQE9uXKfKs8NpiZpPo5PiWHHfHTk4o1Fu/5/XdawujVzCW1dLxjTHvk8ncPaCz9/xx+071laTVRB7Cw7iLa+hZrILTEHg5w9JUEk7cq7inSVhO5V7FOkjKC6P5OfvXew1cl1pPk/8Amu9hq5KoCvEIQMMfdalm7W287gFmz5PgXt6zc+S4HtOWl43HmppR+rfzOBWaTxnM5g0677t10BQdBdp+g7uPqXkMOUAXv18PMnFPfMC0XIIOgvqDcaIjQfBM11oidxqGEd3wYPpB8y8Uj4P6iWSSIyNIInYBduUlt2G+4A6k7ghBccB6dR9+/wBQU2FB4D06j79/qCmwgUFXvCZGThk9uHJE9wmZf8/IrAispGTwvgf0ZGOY628BwIuO0Xv5FjaNxMNuG/h5K39piWReCSVoq5Gne6E28j2kj3+RPMS8HlZJNLI18NnyPcLueDZziRfmb9VUW8vh1ZqLSwP1HBw/hc0+Zy2zZ/HoKuISRO+0w9Jh6nD37iuTHWt69FvR9DzM+bjZPtGHzreI8+7FqvCJI6nxRxbymdrLgnLd1ra2vbnDgrD/APG1d9KH8bv4FK4rsvWPxPxhsYMXLRPz52DmtyXNib8DwV7xXFYaaMyzPDWjzk9TRxPYscfHr97q8tNvL+L5axijDMWm0efr5+zPvC+8AUse9wEhPd8GPSQfMpjwSROFC4nc6d5b3BkbfW0rOMexKXEKvO1pLnkMijGpDb81vnJJPWTwW27OYWKamipxrkbZxHFxN3u8riVtxfeyTaOzi539jhY8FvxTO5/3/KWaujVzCW1dTwSyszqvj3/eP9orRq2YMjc88B6eA89lm8pvIT1uJ9KipHgq/inSVgG5V/FOkiwXSfJ/813stXJdKX5P/mO9lq5KpIQhCBtijSYJbfR94VSho2uNy0E9dtfOrrM28Ug/U94UXQQjMNECsKwVlw4saAOwaqXl0dYJ6waJnL0lBK7O/KYfvGe0F6vdmvlMP22+tCqJnAjz6j79/uU2FCYF06j/ALh/qCmggUlxuskIQQe2myEVewOBEc7RZklrgjfkkHEamx3i/HUHIsRwSvoH5nMkjy7pYychHZI3dfqNj2LfGuslZ1pyYYtO+0vR4nxLJgr0THVX2lgrdtsRAt4y632YyfOW3XGmoK/EH5g2WYnTlHE5G67s7uaO5bz4nETfk2X68rb+ey65Fr+zzP4rbdX9XpTzxYYrPv8A8iFQ2L2LZR/CvIknItmHRjB3hl/a9Wt7k0WXgCUF0VrFY1Dyc2a+a83vO5KCW1cwltVajLaD5O/9j22qgydM959avu0B/R3d7PbaqBOece8+tFhIh2ihsSbrdPeW0TKpkuiuTJMsA+8d7LU28ZCXU35Fth893qCjSD1KpJ/4yF54yFH69SLHqQSnLAskH6vvCb0LNQkQXDHkjg32gu1O9RUyDomj+klMl0SAblDSZ2aH6TD9tqEvZYfpUP2vcUKsUpgfTqP+4f7lNNUJgnTqPv3+5TLUHQL1JXqBSF4vUCmJSQ1KUHq9C8XqBQS2rmEtqBjtB8nd3s9tqoFVvPeVftoPk7u9nttWf1ZsT3lFg1fLZMqiddJ3JhMUVP4ZY0rSfrX+yxeuib1BJwj5KOyV9/K1q6KjkadvUk+LN6l3QiGtdEG08p7Y/bURTyqbxH5NL+x7arkZUVLMlTiJyjYXp9Stc5wa0EkkAAbyTuAQW3YelL6lr+EYLj5QWgec38hQrlszhApoQ09N2rz28GjsH5nihViq2B9Op+/eplqhcD6dT9+9TLUCwlJASkHqEIQLavU3qqpkUb5XmzWNLnHfoBc2HFUyn27qZy7xagdI1u85iT2XDW2BNt1ytdsla+UurBw8ueJtSPKO8zMRH7r4F6qrsxtnHVF8b4zFIxpeWk5gWt6VjYG46refVR2I+EiESNZTx8qDoXOJjAJNgACLny2U8amt7bY+G8mck44xzuO/t+vZfAlhU/aXbqClLomNMkzXWLSC1o4kl3HTqup3ZvEzU00dQWhpeHHKDcCz3N3+RWMlZt0xPm05OHmx4oy3rqs9i9oj+ju72e2F7jGyMVSBI15ieQLkNDmuNt5bpr3EJO0Xyd3ez2wrNB0W9w9Szc7OajwcVHzaiM97HN9RKYyeDSt4SweUyD/YtXQqbZZR7A4nFcNkpiDvBkl39Y+C0Xc7FYl9Km/1Zf8AhWmIQ2zL+5OJ/Spf9SX/AIl6NicS+lTf6kv/ABLTEIbZdVeD/EZBldLTtG+wdIb/ALgXJnguquNRF5A8rVkIbZnF4MZuNUwd0Tj/ALgrPsxshFSO5Rz+VktYOLQ1rb78rbmx4Xv5tVZUIgQhCDPcCPPqPvnKaaoTATz6j75ymmlB0C9CSEpB6vV4hBwxGEPhkYWcoHMcMmbLnu083N82+6/BY3HNBC97S6sp+BY0tznfo/VnqO9bJiEpZDI9uhbG9wPUQ0kepVWo2tHiYLZQakAXBZ+trply9FaMuPq15vS4HOnjRas16on56/iYQng0weQ1DqgscIQx7QXjp5tAN3O0vc7knb7CmsrYRBAGtyMLuSjs2/KuuSGi17W9CsNTjs/jEsZqYoWsyZeUZfNdoJsR1H1qRwvFZnVTYHSMew0/K5mNsHOL7AjXdYjRY+DXo6W+fi2T7T4/T6a1tF+E/DGmna+KAGR07czmRgvI5OTpFouRo3f2Kd2Gjc2gga5paQ11w4EEc928FNMXxSobVinjliibyQkLpRcXzOBF7jgB6U/2XxR9RG8vy5mSOjzMvkfaxDm371sikRebOO/LtbjVwTHad73+xxtH8nd3s9sKzw9Edw9Sq+0Xyd3ez2wrRF0R3D1La4i0IQgEIQgEIQgEIQgEIQgEIQgzrADz6j74+9TbVBbPnnVH3p96m2lB1CUEgFKUCl7dJuhUcMSYHQStLg0GN4LjubdpFz2BQFZh8bsNbGJoQAG/DE2j0frzrdeimsbP6NP91J7BVErDJBR8mbujqY45GH6Egc0vb3EC/m7VhZnVN19PJBNJMJqRrZspAnzE2aLXaAO31JRhqRNHUxzUeaSIRNu5+R5Dr2iAGvzePXojCY4X1lT4wGF7RGIxJYgR5T0Q7Tdl856yoh7AGVE0PxUFVHJFbo3uQ8N7NY/IAoqWkhiNW19fLSFxa2Hkw8/HOeXRgMdqLt6zvVooZ6YMaInxBhvlDHMykAnMW2Out7+VZ3PUFuarc3MKoVAju0HIQ4Bjh1OF7A77XV9w/Co208UL2g5GAEa2zGxfu6yrCSVtG79Hd3s9sK1RdEdw9Sqe0jf0Zw7Weh7VbIDzW9w9SyYFoQhUCEIQCEIQCEIQCEIQCEIQZts+7nT/AHp96m2lVullNPUzRvFml7ud1ODjv7CPV2qfjkB1BQOWlKBXJrksFQLXqRde3QM8dqmxU00jmh4axxLTudpbKew7lTqnHaiTNTChhkZC/k7B5y5mEMswGxNswBtuzaq5YtQCohdC5xaHZbltr81wdxFvm2UWNlRcu8ZlBLi8lrKdt3OLS46RcSxt+vKLrVeLzPk9HiX41aT4sRM79d/L2/yrNRi81UbyUtIQy45Qvc4NAjdKLujfcjK0rucUxDIadtNSCK+UsIc213ObdwEp3ua7W9za/EKd/ufHYN5eawBFgKcCxbI21uR3WlkFt3OXb+6se8z1BN73zxi5zh9zaMX5wuOrcNFh0X95dU8jhxPlSP0lXhj8Qov0mOMTRuk8WYxkhjBZZrSTmN+fm3mxVz2exhlTEHtJLmhok5jmDPlBdYO4XTZ2zsBpDRXeI3G5OYZz8Jyh5xHE9m5TBfZbKVtHeXFyMvHtWfDpqeqfy16en8mePH4B3e32grPQPvFG7rY0+doVLx2sDm8m3W5GY8AAbq5YbGWwxtO8MaD3hoWxxHKEIVQIQhAIQhAIQhAIQhAIQhBTNu8Jd8qj7BKB5mv9x8naq3g07y9rWi7i4DKCBmv32F1qz2ggggEEWIOoIO8EKmx7PQxV0YYXgB2cC4IBALgN17ad6krB23Dqj6o/iZ/Elign+qP4mfxKyoVRW/EZ/qj+Jn8S98Rn+qP4mfxKxoQV0UU/1Z/Ez8174nP9UfxM/NWFCCveJz/VH8TPzR4nP9UfxM/NWFCCv+KT/VH8TP4lWNoKiZkvJvaWWaHAXabgki5yk9XoWjqv4/gEUr2yuc8Oc5jDlLbWv2g6qKgdlcPdPJyj/i2G56nO3hvvP81flxpaZkbBGxuVrRYAf1qe1dlUCEIQCEIQCEIQCEIQCEIQCEIQf//Z">
+      <h3>911 Emergency Lanyard</h3>
+      <p>Ensure emergency contact information is always close at hand with this adjustable lanyard. Ideal for seniors who may need help in urgent situations.</p>
+      <button onclick="addToCart('911 Emergency Lanyard', 20)">Add to Cart</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/81mMAfEcp9L.__AC_SX300_SY300_QL70_FMwebp_.jpg">
+      <h3>First Aid Bandage Kit</h3>
+      <p>This comprehensive first aid kit includes assorted bandages, gauze, and adhesive strips designed to address a variety of minor injuries. Great for at-home or on-the-go.</p>
+      <button onclick="addToCart('First Aid Bandage Kit', 25)">Add to Cart</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/71sJW880NlL.__AC_SX300_SY300_QL70_FMwebp_.jpg">
+      <h3>Pain Relievers</h3>
+      <p>Conveniently packaged, this assortment of over-the-counter pain relievers (acetaminophen, ibuprofen) helps ease discomfort due to common ailments.</p>
+      <button onclick="addToCart('Pain Relievers', 15)">Add to Cart</button>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/31XORgfpTnL._SY445_SX342_QL70_FMwebp_.jpg">
+      <h3>Digital Thermometer</h3>
+      <p>Quick and accurate temperature readings. This thermometer is perfect for seniors who need to monitor their health on a regular basis. Easy-to-read display.</p>
+      <button onclick="addToCart('Digital Thermometer', 12)">Add to Cart</button>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product-card">
+      <img src="data:image/jpeg;base64,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">
+      <h3>Hand Sanitizer</h3>
+      <p>Stay safe from germs with travel-sized hand sanitizers. Ideal for seniors to carry in their bags for easy access when public hygiene is a concern.</p>
+      <button onclick="addToCart('Hand Sanitizer', 5)">Add to Cart</button>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="product-card">
+      <img src="https://cdn11.bigcommerce.com/s-spvlr46b73/images/stencil/960w/products/13063/50564/grqhobnfd114njhzxcsj__32077.1742311782.jpg?c=1">
+      <h3>Disposable Gloves</h3>
+      <p>Perfect for medical emergencies or personal hygiene. These gloves offer protection when tending to injuries or handling health-related tasks.</p>
+      <button onclick="addToCart('Disposable Gloves', 8)">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="cart-container" id="cartContainer">
+  <h3>Your Cart</h3>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-total" id="cartTotal"></div>
+  <div class="cart-button-container">
+    <button onclick="clearCart()">Clear Cart</button>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+</div>
+
+<button class="show-cart" onclick="toggleCart()">🛒</button>
+
+<footer>
+  <p>&copy; 2025 First Aid Essentials for Seniors | All Rights Reserved</p>
+</footer>
+
+<script>
+  let cart = [];
+
+  function addToCart(item, price) {
+    // Add the selected product to the cart array
+    cart.push({ item, price });
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartContainer = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+
+    cartContainer.innerHTML = '';
+    let total = 0;
+    cart.forEach((product, index) => {
+      cartContainer.innerHTML += `<div>${product.item} - $${product.price} <button onclick="removeFromCart(${index})">Remove</button></div>`;
+      total += product.price;
+    });
+
+    cartTotal.innerHTML = `Total: $${total}`;
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1); // Remove item from the cart
+    updateCart();
+  }
+
+  function clearCart() {
+    cart = [];
+    updateCart();
+  }
+
+  function toggleCart() {
+    const cartContainer = document.getElementById('cartContainer');
+    cartContainer.style.display = cartContainer.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function checkout() {
+    alert('Proceeding to checkout...');
+  }
+</script>
+
+</body>
+</html>
